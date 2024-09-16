@@ -1,11 +1,14 @@
 ## To Do
 ## Contents:
 - [x] Declaring variables (const, let) *- Lesson 01*
-- [x] Operators (attritution, concatenation, logic) *- Lesson 01*
+- [x] Operators (attritution, concatenation, logic) *- Lesson 01 / 02*
 - [x] Data Types *- Lesson 01*
-- [ ] Data Structure
-- [ ] Flow Control
-- [ ] Looping Structures
+- [x] Data Structure *- Lesson 01*
+- [x] Flow Control *- Lesson 02
+- [x] Looping Structures *- Lesson 02*
+- [x] Modules *- Lesson 02*
+
+> *Not all the content from the lessons will be written down, as that would only create a tedious and cumbersome notetaking process!!*
 
 ---
 ### Problem Resolution Phases
