@@ -1,4 +1,11 @@
-## To Do
+## To Do:
+- [x] Create Goals
+- [x] List Goals:
+	- [ ] Achieved Goals
+	- [ ] Ongoing Goals
+- [x] Check and Uncheck
+- [ ] Remove Items from the List
+
 ## Contents:
 - [x] Declaring variables (const, let) *- Lesson 01*
 - [x] Operators (attritution, concatenation, logic) *- Lesson 01 / 02*
