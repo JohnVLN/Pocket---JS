@@ -1,7 +1,7 @@
 ## Repetition Structures
 
 ### - [x] While
-Exemple:
+Example:
 ```js
 const start = () => {
     let count = 0
@@ -34,4 +34,64 @@ start()
 ```
 
 > To terminate a process from within the terminal, press `Ctrl + C`.
+
+### - [x] Modules
+Importing the method `select` from module `inquirer` using the function `require()`:
+```js
+const { select } = require('@inquirer/prompts')
+const start = async () => {
+
+    while(true) {
+        const option = await select({
+            message: 'Menu > ',
+            choices: [
+                {
+                    name: "Add an item.",
+                    value: "add" },
+                {
+                    name: "Quit",
+                    value: "quit" }
+            ]
+        })
+
+        switch(option){
+            case 'add':
+                console.log("Let's add a goal to your list.")
+                break
+            case 'quit':
+                console.log("Till next time!")
+                return
+        }
+    }
+}
+start()
+```
+
+- [x] Use of asynchronous functions (async/await)
+- [x] Comparison Operator
+- [x] Lists and Push method
+
+Use the push method to create a basic function that adds user input into a list:
+```js
+let item = {
+    value: 'Run once a week',
+    checked: false,
+}
+
+let goals = [ item ]
+
+const addGoal = async () => {
+    const goal = await input({ message: "Write down a new goal... \n> " })
+    if(goal.length == 0) {
+        console.log('The slot cannot be empty')
+        return
+    }
+
+    goals.push({
+        value: goal, checked: false
+    })
+}
+```
+
+- [x] Spread Operator
 
