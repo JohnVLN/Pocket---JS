@@ -7,6 +7,7 @@
 - [ ] Flow Control
 - [ ] Looping Structures
 
+---
 ### Problem Resolution Phases
 - Collect data
 - Process data
