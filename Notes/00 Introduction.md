@@ -1,17 +1,17 @@
 ## To Do:
-- [x] Create Goals
+- [x] Create Goals *- Lesson 02*
 - [x] List Goals:
-	- [ ] Achieved Goals
+	- [x] Achieved Goals *- Lesson 02 / 03*
 	- [ ] Ongoing Goals
-- [x] Check and Uncheck
+- [x] Check and Uncheck *- Lesson 02*
 - [ ] Remove Items from the List
 
 ## Contents:
 - [x] Declaring variables (const, let) *- Lesson 01*
-- [x] Operators (attritution, concatenation, logic) *- Lesson 01 / 02*
+- [x] Operators (attritution, concatenation, logic) *- Lesson 01 / 02 / 03*
 - [x] Data Types *- Lesson 01*
-- [x] Data Structure *- Lesson 01*
-- [x] Flow Control *- Lesson 02
+- [x] Data Structure *- Lesson 01 / 02 / 03*
+- [x] Flow Control *- Lesson 02 / 03*
 - [x] Looping Structures *- Lesson 02*
 - [x] Modules *- Lesson 02*
 
