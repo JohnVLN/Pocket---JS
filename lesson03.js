@@ -31,15 +31,15 @@ const listGoals = async () => {
         instructions: false,
     })
 
+    // Sets all items as unchecked inside selection menu, allowing to mark goals as 'not done'
+    goals.forEach((g) => {
+        g.checked = false
+    })
+
     if(responses.lenght == 0) {
         console.log('No items have been selected!')
         return
     }
-
-    // Sets all items as unchecked inside selection menu, allowing to mark goals as 'not done'
-    responses.forEach((g) => {
-        g.checked = false
-    })
 
     responses.forEach((response) => {
         // using .find to get the item that matches the same value of the selected item
