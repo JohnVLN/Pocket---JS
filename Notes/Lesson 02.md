@@ -95,3 +95,9 @@ const addGoal = async () => {
 
 - [x] Spread Operator
 
+Basic diagram explaining the loop ran in the lesson.
+![[Pasted image 20240916171506.png]]
+- [x] `.push`, `.find` and `.forEach` methods for Arrays
+
+> JavaScript can transform anything into an object.
+
