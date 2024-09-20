@@ -1,3 +1,15 @@
+### Data Handling
+Examples of data:
+- strings - “Crab” ‘Whale’
+- number - 5  8.0  -90.5:
+    - Infinity
+    - NaN (Not a Number)
+- boolean - true or false
+- null
+- undefined
+- object:
+    - Array
+- function
 To find out what is the type of a variable you can use `typeof 'var_name'`
 
 Line of code could be global or local, local code is nested inside isolated `{}`
