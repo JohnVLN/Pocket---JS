@@ -42,7 +42,7 @@ const listGoals = async () => {
     }
 
     responses.forEach((response) => {
-        // using .find to get the item that matches the same value of the selected item
+        // using .find to get the item that matches the same value of the selected one
         const goal = goals.find((g) => {
             return g.value == response
         })
@@ -65,8 +65,23 @@ const doneGoals = async () => {
     }
 
     await select({
-        message: "Goals Achieved:",
+        message: "Goals Achieved:" + done.length,
         choices: [...done]
+    })
+}
+
+const ongoingGoals = async () => {
+    const ongoing = goals.filter((item) => {
+        return !item.checked
+    })
+
+    if(ongoing.length == 0) {
+        console.log("You need to add more goals :)")
+    }
+
+    await select({
+        message: "Ongoing Goals: " + ongoing.length,
+        choices: [...ongoing]
     })
 }
 
@@ -74,7 +89,7 @@ const start = async () => {
     while(true) {
         // Options given to the user in the menu
         const option = await select({
-            message: 'Menu > ',
+            message: '\nMenu > ',
             choices: [
                 {
                     name: "Add an item",
@@ -87,6 +102,10 @@ const start = async () => {
                 {
                     name: "Show achieved goals",
                     value: "done"
+                },
+                {
+                    name: "Show ongoing goals",
+                    value: "ongoing"
                 },
                 {
                     name: "Quit",
@@ -105,6 +124,9 @@ const start = async () => {
                 break
             case 'done':
                 doneGoals()
+                break
+            case 'ongoing':
+                ongoingGoals()
                 break
             case 'quit':
                 console.log("Till next time!")
