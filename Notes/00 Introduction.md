@@ -2,9 +2,9 @@
 - [x] Create Goals *- Lesson 02*
 - [x] List Goals:
 	- [x] Achieved Goals *- Lesson 02 / 03*
-	- [ ] Ongoing Goals
+	- [x] Ongoing Goals *- Lesson 03*
 - [x] Check and Uncheck *- Lesson 02*
-- [ ] Remove Items from the List
+- [x] Remove Items from the List *- Lesson 03*
 
 ## Contents:
 - [x] Declaring variables (const, let) *- Lesson 01*

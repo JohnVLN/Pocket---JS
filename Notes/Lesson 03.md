@@ -9,7 +9,7 @@ const doneGoals = async () => {
 }
 ```
 
-- [x] HOF Wrap up
+- [x] HOF Introduction
 
 > The `...` operator can also be the "Rest" operator
 
@@ -20,3 +20,13 @@ await select({
         choices: [...done]
     })
 ```
+
+- [x] HOF `.map`
+
+Example of a use for `.map` method, reformulating each item on the array 'goals':
+```js
+const unchecked = goals.map(() => {
+    return { value: item.value, checked: false }
+})
+```
+The `goals.map` calls for "reformulating" each item inside the 'goals' list, returning the original value of each item but with their `checked` status set to *false*.

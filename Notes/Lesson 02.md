@@ -1,6 +1,6 @@
 ## Repetition Structures
 
-### - [x] While
+### - [x] While 
 Example:
 ```js
 const start = () => {
@@ -71,7 +71,7 @@ start()
 - [x] Comparison Operator
 - [x] Lists and Push method
 
-Use the push method to create a basic function that adds user input into a list:
+Use the `.push` method to create a basic function that adds the user input from 'goal' into the 'goals' list:
 ```js
 let item = {
     value: 'Run once a week',
