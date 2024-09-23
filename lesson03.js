@@ -70,6 +70,7 @@ const doneGoals = async () => {
     })
 }
 
+// Function to list all items still unchecked
 const ongoingGoals = async () => {
     const ongoing = goals.filter((item) => {
         return !item.checked
@@ -83,6 +84,32 @@ const ongoingGoals = async () => {
         message: "Ongoing Goals: " + ongoing.length,
         choices: [...ongoing]
     })
+}
+
+// Function for deleting items from the list
+const deleteGoals = async () => {
+    // Using .map function to return all items unchecked
+    const unchecked = goals.map(() => {
+        return { value: item.value, checked: false }
+    })
+
+    const responses = await checkbox({
+        message: "> Use the arrows to select\n> Use space to check an item off\n> Hit enter when you are done.\n",
+        choices: [...goals],
+        instructions: false,
+    })
+
+    if(responses.length == 0) {
+        console.log("No items have been selected!")
+        return
+    }
+
+    responses.forEach((meta) => {
+        goals = goals.filter((item) => {
+            return item.value != meta
+        })
+    })
+    console.log("Items were successfully deleted!")
 }
 
 const start = async () => {
@@ -108,6 +135,10 @@ const start = async () => {
                     value: "ongoing"
                 },
                 {
+                    name: "Delete",
+                    value: "delete"
+                },
+                {
                     name: "Quit",
                     value: "quit"
                 }
@@ -123,10 +154,13 @@ const start = async () => {
                 await listGoals()
                 break
             case 'done':
-                doneGoals()
+                await doneGoals()
                 break
             case 'ongoing':
-                ongoingGoals()
+                await ongoingGoals()
+                break
+            case 'delete':
+                await deleteGoals()
                 break
             case 'quit':
                 console.log("Till next time!")
