@@ -89,13 +89,13 @@ const ongoingGoals = async () => {
 // Function for deleting items from the list
 const deleteGoals = async () => {
     // Using .map function to return all items unchecked
-    const unchecked = goals.map(() => {
+    const unchecked = goals.map((item) => {
         return { value: item.value, checked: false }
     })
 
     const responses = await checkbox({
         message: "> Use the arrows to select\n> Use space to check an item off\n> Hit enter when you are done.\n",
-        choices: [...goals],
+        choices: [...unchecked],
         instructions: false,
     })
 
@@ -112,8 +112,13 @@ const deleteGoals = async () => {
     console.log("Items were successfully deleted!")
 }
 
+const consoleWork = () => {
+    console.clear();
+} 
+
 const start = async () => {
     while(true) {
+        consoleWork();
         // Options given to the user in the menu
         const option = await select({
             message: '\nMenu > ',
