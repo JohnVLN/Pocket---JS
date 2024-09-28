@@ -7,7 +7,7 @@ let item = {
     checked: false,
 }
 let goals = [ item ]
-let feedback = "placeholder"
+let feedback = "Wellcome"
 
 // Function for adding items to list
 const addGoal = async () => {
@@ -27,30 +27,35 @@ const addGoal = async () => {
 
 // Function for listing items to user
 const listGoals = async () => {
-    const responses = await checkbox({
-        message: "> Use the arrows to select\n> Use space to check an item off\n> Hit enter when you are done.\n",
-        choices: [...goals],
-        instructions: false,
-    })
-
-    // Sets all items as unchecked inside selection menu, allowing to mark goals as 'not done'
-    goals.forEach((g) => {
-        g.checked = false
-    })
-
-    if(responses.lenght == 0) {
-        feedback = "No items have been selected!"
-        return
-    }
-
-    responses.forEach((response) => {
-        // using .find to get the item that matches the same value of the selected one
-        const goal = goals.find((g) => {
-            return g.value == response
+    // If else logic applied only to list if the list has items inside 
+    if(goals.length != 0) {
+        const responses = await checkbox({
+            message: "> Use the arrows to select\n> Use space to check an item off\n> Hit enter when you are done.\n",
+            choices: [...goals],
+            instructions: false,
         })
-        goal.checked = true
-    })
-    feedback = "Goal(s) have been ticked off as Achieved!"
+
+        if(responses.lenght == 0) {
+            feedback = "No items have been selected!"
+            return
+        }
+
+        // Sets all items as unchecked inside selection menu, allowing to mark goals as 'not done'
+        goals.forEach((g) => {
+            g.checked = false
+        })
+
+        responses.forEach((response) => {
+            // using .find to get the item that matches the same value of the selected one
+            const goal = goals.find((g) => {
+                return g.value == response
+            })
+            goal.checked = true
+        })
+        feedback = "Goal(s) have been ticked off as Achieved!"
+    } else {
+        feedback = "Your list is empty!\nAdd more goals to your tracker"
+    }
 }
 
 // Function for listing all items marked as 'done'
@@ -62,7 +67,7 @@ const doneGoals = async () => {
 
     // For no items marked as checked
     if(done.length == 0) {
-        feedback = "No goals have been chieved!"
+        feedback = "No goals have been achieved!"
         return
     }
 
@@ -79,7 +84,7 @@ const ongoingGoals = async () => {
     })
 
     if(ongoing.length == 0) {
-        feedback = "You need to add more goals :)"
+        feedback = "You need to add more goals to your tracker :)"
         return
     }
 
@@ -118,7 +123,7 @@ const deleteGoals = async () => {
 const consoleWork = () => {
     console.clear();
     if(feedback != "") {
-        console.log(feedback)
+        console.log(feedback + '\n')
         feedback = ""
     }
 }
