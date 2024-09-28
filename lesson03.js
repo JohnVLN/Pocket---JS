@@ -7,13 +7,14 @@ let item = {
     checked: false,
 }
 let goals = [ item ]
+let feedback = "placeholder"
 
 // Function for adding items to list
 const addGoal = async () => {
     const goal = await input({ message: "Write down a new goal... \n> " })
 
     if(goal.length == 0) {
-        console.log('The slot cannot be empty')
+        feedback = "The slot cannot be empty"
         return
     }
 
@@ -21,6 +22,7 @@ const addGoal = async () => {
     goals.push({
         value: goal, checked: false
     })
+    feedback = "A new goal was added to the tracker!"
 }
 
 // Function for listing items to user
@@ -37,7 +39,7 @@ const listGoals = async () => {
     })
 
     if(responses.lenght == 0) {
-        console.log('No items have been selected!')
+        feedback = "No items have been selected!"
         return
     }
 
@@ -48,7 +50,7 @@ const listGoals = async () => {
         })
         goal.checked = true
     })
-    console.log('Goal(s) have been ticked off as Achieved!')
+    feedback = "Goal(s) have been ticked off as Achieved!"
 }
 
 // Function for listing all items marked as 'done'
@@ -60,7 +62,7 @@ const doneGoals = async () => {
 
     // For no items marked as checked
     if(done.length == 0) {
-        console.log("No goals have been chieved!")
+        feedback = "No goals have been chieved!"
         return
     }
 
@@ -77,7 +79,8 @@ const ongoingGoals = async () => {
     })
 
     if(ongoing.length == 0) {
-        console.log("You need to add more goals :)")
+        feedback = "You need to add more goals :)"
+        return
     }
 
     await select({
@@ -100,7 +103,7 @@ const deleteGoals = async () => {
     })
 
     if(responses.length == 0) {
-        console.log("No items have been selected!")
+        feedback = "No items have been selected!"
         return
     }
 
@@ -109,19 +112,23 @@ const deleteGoals = async () => {
             return item.value != meta
         })
     })
-    console.log("Items were successfully deleted!")
+    feedback = "Items were successfully deleted!"
 }
 
 const consoleWork = () => {
     console.clear();
-} 
+    if(feedback != "") {
+        console.log(feedback)
+        feedback = ""
+    }
+}
 
 const start = async () => {
     while(true) {
-        consoleWork();
+        consoleWork()
         // Options given to the user in the menu
         const option = await select({
-            message: '\nMenu > ',
+            message: 'Menu > ',
             choices: [
                 {
                     name: "Add an item",
