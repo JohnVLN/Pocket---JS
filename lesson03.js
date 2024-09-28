@@ -1,13 +1,19 @@
-// Continuation of lesson 02
-
 const { select, input, checkbox } = require('@inquirer/prompts')
+const fs = require("fs").promises
 
-let item = {
-    value: 'Run once a week',
-    checked: false,
+let goals = []
+let feedback = "Wellcome!"
+
+const loadItems = async () => {
+    try {
+        const data = await fs.readFile("goals.json", "utf-8")
+        goals = JSON.parse(data)
+    }  catch(ERROR){ goals = [] }
 }
-let goals = [ item ]
-let feedback = "Wellcome"
+
+const writeItems = async () => {
+    await fs.writeFile("goals.json", JSON.stringify(goals, null, 2))
+}
 
 // Function for adding items to list
 const addGoal = async () => {
@@ -129,8 +135,12 @@ const consoleWork = () => {
 }
 
 const start = async () => {
+    await loadItems()
+
     while(true) {
         consoleWork()
+        await writeItems()
+
         // Options given to the user in the menu
         const option = await select({
             message: 'Menu > ',
