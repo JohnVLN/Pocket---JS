@@ -5,6 +5,8 @@
 	- [x] Ongoing Goals *- Lesson 03*
 - [x] Check and Uncheck *- Lesson 02*
 - [x] Remove Items from the List *- Lesson 03*
+- [x] Feedback messages *- Lesson 03*
+- [x] Persistent Data *- Lesson 03*
 
 ## Contents:
 - [x] Declaring variables (const, let) *- Lesson 01*
@@ -21,4 +23,4 @@
 ### Problem Resolution Phases
 - Collect data
 - Process data
-- Present data 
+- Present data (Not always applied)
